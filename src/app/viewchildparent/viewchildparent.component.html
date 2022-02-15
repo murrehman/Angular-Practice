@@ -1,0 +1,22 @@
+<div class="page-area">
+    <h2>Home</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur esse ducimus eligendi id corrupti tempore
+        magnam delectus quidem reiciendis non natus eius molestiae voluptates, temporibus eum quasi voluptatum ipsa
+        enim!</p>
+    <div class="box" #box>
+        <h1>Username is <span class="text-success">Uxtrendz</span></h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-danger" (click)="CallChildMethod()">Call Child Method</button>
+            <button type="submit" class="btn btn-danger" (click)="ChangeChildProperty()">Call Child
+                Property</button>
+        </div>
+        <div class="col-md-6">
+            <app-viewchildchild>
+                <p #childCon>This is NG-COntent paragraph</p>
+            </app-viewchildchild>
+        </div>
+
+    </div>
+</div>

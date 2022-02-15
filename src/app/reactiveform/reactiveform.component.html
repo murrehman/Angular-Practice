@@ -1,0 +1,64 @@
+<div class="page-area">
+    <h2>About Us!</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur esse ducimus eligendi id corrupti tempore
+        magnam delectus quidem reiciendis non natus eius molestiae voluptates, temporibus eum quasi voluptatum ipsa
+        enim!</p>
+    <hr class="mb-3">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-left bg-white rounded shadow py-3">
+            <form (ngSubmit)="onSubmit()" [formGroup]="myReactiveForm">
+                <div formGroupName="userDetail">
+                    <div class="form-group">
+                        <label for="username">Username*</label>
+                        <input type="text" class="form-control" id="username" placeholder="Your Username"
+                            formControlName="username">
+                        <small
+                            *ngIf="myReactiveForm.get('userDetail.username')!.invalid && myReactiveForm.get('userDetail.username')!.touched">
+                            <span *ngIf="myReactiveForm.get('userDetail.username')!.errors!['required']">Username
+                                is not valid!</span>
+                            <span *ngIf="myReactiveForm.get('userDetail.username')!.errors!['nameIsNotAllowed']">
+                                {{myReactiveForm.get('userDetail.username')!.value}} is not allowed!</span>
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" class="form-control myRecForm" [ngClass]="formstatus" id="email"
+                            placeholder="Your Email" formControlName="email">
+                        <small
+                            *ngIf="myReactiveForm.get('userDetail.email')!.invalid && myReactiveForm.get('userDetail.email')!.touched">Please
+                            Enter valid email.</small>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="course">Select Course</label>
+                    <select class="form-control" id="course" formControlName="course">
+                        <option value="Angular">Angular</option>
+                        <option value="HTML">HTML</option>
+                        <option value="Javascript">Javascript</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-radio" *ngFor="let gender of genders">
+                        <input type="radio" id="customRadio{{gender.id}}" value="{{gender.value}}"
+                            class="custom-control-input" formControlName="gender">
+                        <label class="custom-control-label" for="customRadio{{gender.id}}">{{gender.value}}</label>
+                    </div>
+                </div>
+                <div class="form-group" formArrayName="skills">
+                    <label>Skills</label>
+                    <ng-container *ngFor="let skill of getControls(); index as i">
+                        <input type="text" class="form-control mt-2" placeholder="Your Username"
+                            formControlName="{{i}}">
+                    </ng-container>
+                    <button class="btn btn-sm btn-light mt-3 btn-add" (click)="onAddSkills()">+Add Skills</button>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+
+</div>

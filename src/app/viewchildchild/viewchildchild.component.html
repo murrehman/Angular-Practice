@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="card" appTestdirective>
+        <h4>User: <span class="text-success">{{userName}}</span></h4>
+    </div>
+</div>
+<div class="row">
+    <div class="card">
+        <div class="form-group">
+            <br><br>
+            <button type="submit" class="btn btn-danger" (click)="ClickMe()">Alert</button> &nbsp;
+            <button type="submit" class="btn btn-success" (click)="changeColor('green')">Green</button> &nbsp;
+
+            <button type="submit" class="btn btn-danger" (click)="changeColor('red')">Red</button>
+
+        </div>
+        <ng-Content></ng-Content>
+    </div>
+
+</div>

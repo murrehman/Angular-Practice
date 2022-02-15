@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="card">
+        <h4>User: <span class="text-success">{{userName}}</span></h4>
+    </div>
+</div>
+<div class="row">
+    <div class="card">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Create User" #newItem>
+            <br><br>
+            <button type="submit" (click)="updateUserName(newItem)" class="btn btn-success">Create</button>
+        </div>
+    </div>
+</div>
